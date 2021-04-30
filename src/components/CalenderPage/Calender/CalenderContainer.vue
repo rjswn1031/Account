@@ -8,7 +8,7 @@
 
 <script>
 import Calender from "../Calender/Calender.vue";
-import Common from "../../assets/common.js"
+import Common from "../../../assets/common.js"
 var common = new Common;
 
 export default {

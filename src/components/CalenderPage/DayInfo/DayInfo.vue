@@ -18,7 +18,7 @@
 <script>
 import InsertModal from './InsertModal.vue'
 import InfoTable from './InfoTable.vue'
-import Common from '../../assets/common.js'
+import Common from '../../../assets/common.js'
 var common = new Common;
 
 export default {
@@ -52,7 +52,7 @@ export default {
       }
 
       for (var j = 0; j < account.expend.length; j++) {
-        if(expend[i].date == this.today) this.expendArr.push(expend[i]);
+        if(expend[j].date == this.today) this.expendArr.push(expend[j]);
       }
     }
   },
@@ -65,7 +65,7 @@ export default {
       type = account[type];
       console.log(type)
 
-      var json = {'index': type[type.length-1].index == undefined ? 0 : (type[type.length-1].index + 1), 'date':this.today,'id':'rjswn1031','price':price,'content':content,'category':category,'fixed':'N'};
+      var json = {'index': type.length == 0 ? 0 : (type[type.length-1].index + 1), 'date':this.today,'id':'rjswn1031','price':price,'content':content,'category':category,'fixed':'N'};
       type.push(json);
 
       localStorage.setItem('account',JSON.stringify(account));
