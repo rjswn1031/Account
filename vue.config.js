@@ -1,3 +1,4 @@
 module.exports = {
-    publicPath: '/account/'
-    }
+    publicPath: '/account/',
+    outputDir: 'docs'
+}
