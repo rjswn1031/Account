@@ -23,7 +23,7 @@ export default {
                     data: []
                     },
                     {
-                    label: '수출',
+                    label: '지출',
                     backgroundColor: 'transparent', //배경 투명
                     borderColor: 'red',
                     data: []

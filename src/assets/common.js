@@ -1,4 +1,8 @@
 var Common = {
+    //category
+    incomeCategory: {'salary':'월급', 'pinmoney':'용돈'},
+    expendCategory: {'food':'음식', 'cloth':'옷', 'game':'게임'},
+
     'fget_DateFormat' : function(date, format){
         var dateString = "";
         var year = date.getFullYear();

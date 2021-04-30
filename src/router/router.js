@@ -5,7 +5,6 @@ import Calender from './../components/CalenderPage/CalenderPage.vue'
 import Analysis from './../components/AnalysisPage/AnalysisPage.vue'
 import Month from './../components/AnalysisPage/MonthPage.vue'
 import Year from './../components/AnalysisPage/YearPage.vue'
-
 Vue.use(Router)
 
 export default new Router({
