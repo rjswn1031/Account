@@ -8,7 +8,11 @@
           <tr v-for="(arr, index) in dataArr" :key='index'>
               <td>{{arr.content}}</td>
               <td>{{arr.price}}</td>
-              <td><span>X</span></td>
+              <td><span v-on:click="deleteFunction(modalId, arr.index)">X</span></td>
+          </tr>
+          <tr>
+              <td>합계</td>
+              <td>{{total}}</td>
           </tr>
       </table>
   </div>
@@ -16,7 +20,7 @@
 
 <script>
 export default {
-    props: { modalId:String, dataArr:Array },
+    props: { modalId:String, dataArr:Array, deleteFunction:Function, total:Number },
     data() {
         return {
             tableData: []

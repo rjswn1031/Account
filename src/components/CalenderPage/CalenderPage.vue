@@ -1,6 +1,5 @@
 <template>
   <div id="CalenderPage">
-    <router-link to="/analysis/month">임시 이동</router-link>
     <section id="calenderSection">
       <CalenderContainer :onClickDay='fget_SelectDay'/>
     </section>
@@ -40,4 +39,5 @@ export default {
 
 <style>
 #calenderSection, #infoSection {display: inline-block; vertical-align: top;}
+#calenderSection {width: 70%; height: 100%;}
 </style>

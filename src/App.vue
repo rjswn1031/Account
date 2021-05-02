@@ -1,13 +1,18 @@
 <template>
   <div id="app">
+    <MenuBar/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import MenuBar from './components/MenuBar/MenuBar.vue'
 
 export default {
   name: 'App',
+  components: {
+    MenuBar
+  },
   data() {
     return {
     }
@@ -24,6 +29,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

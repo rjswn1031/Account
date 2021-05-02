@@ -26,4 +26,5 @@ export default {
 };
 </script>
 <style>
+#cal {width: 100%;}
 </style>
