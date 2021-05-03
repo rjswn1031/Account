@@ -41,5 +41,6 @@ export default {
 
 <style>
 #calenderSection, #infoSection {display: inline-block; vertical-align: top;}
-#calenderSection {width: 70%; height: 100%;}
+#calenderSection {width: 75%; height: 100%; padding-left: 2em;}
+#infoSection {width: 25%; padding: 3em 0 0 2em; height: 100vh; border-left: 1px solid rgb(196, 196, 196);}
 </style>

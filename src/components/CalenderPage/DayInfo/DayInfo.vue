@@ -1,15 +1,19 @@
 <template>
   <div>
-    <div>{{today}} 수입 지출 내역</div>
-    <section>
-      수입 <span v-b-modal.income>+</span>
+    <div style="font-weight: bold; font-size: 1.3em; color: #6C757D">{{today}} 수입 지출 내역</div>
+    <section class="sectionContainer">
+      <span class="nameText" style="color: #4fc08d; margin-left: 0.4em;">수입</span> <span v-b-modal.income><b-icon class="pencilIcon" icon="pencil"></b-icon></span>
       <InsertModal :modalId="incomeModalId" :optionCategory="incomeCategory" :okFunction="fset_insertAccount"/>
-      <InfoTable :modalId="incomeModalId" :dataArr="incomeArr" :deleteFunction="fset_deleteAccount" :total="incomeTotal"/>
+      <div class="infoTable">
+        <InfoTable :modalId="incomeModalId" :dataArr="incomeArr" :deleteFunction="fset_deleteAccount" :total="incomeTotal"/>
+      </div>
     </section>
-    <section>
-      지출 <span v-b-modal.expend>+</span>
+    <section class="sectionContainer">
+      <span class="nameText" style="color: red; margin-left: 0.4em;">지출</span> <span v-b-modal.expend><b-icon class="pencilIcon" icon="pencil"></b-icon></span>
       <InsertModal :modalId="expendModalId" :optionCategory="expendCategory" :okFunction="fset_insertAccount"/>
-      <InfoTable :modalId="expendModalId" :dataArr="expendArr" :deleteFunction="fset_deleteAccount" :total="expendTotal"/>
+      <div class="infoTable">
+        <InfoTable :modalId="expendModalId" :dataArr="expendArr" :deleteFunction="fset_deleteAccount" :total="expendTotal"/>
+      </div>
     </section>
     총합: {{ dayTotal }}
   </div>
@@ -106,5 +110,7 @@ export default {
 </script>
 
 <style>
-
+.sectionContainer { margin-top: 2em; }
+.nameText { font-size: 1.4em; }
+.infoTable {border: 1px solid rgb(187, 187, 187); width: 32em; height: 20em; padding: 1em 1em 1em 1em; border-radius: 10px; margin-top: 0.7em; background-color: rgb(250, 250, 250); }
 </style>

@@ -1,5 +1,6 @@
 <template>
     <div id="calenderCon">
+      <div class="yoil calenderDay" v-for="yoil in day" :key="yoil">{{yoil}}</div>
       <div class="calenderWeek" v-for="(date, week) in days" :key= "week">
         <div class="calenderDay" v-for="(date, day) in date" :key= "day" v-on:click='onClickDay(selectDay,date)'>
           {{date}}
@@ -16,6 +17,7 @@ export default {
    props: {selectDay:String, onClickDay:Function},
   data() {
     return{
+      day: ['일','월','화','수','목','금','토'],
       days: [],
     }
   },
@@ -59,6 +61,7 @@ export default {
 </script>
 
 <style>
+  .yoil { background-color: #dadada; height: auto !important;}
   #calenderCon{width: 100%; margin-left: 2.5em;}
-  .calenderDay {display: inline-block; border: 1px solid gray; padding: 2px 2px 2px 2px; width: 13%; height: 6.1em; vertical-align: top;}  
+  .calenderDay {display: inline-block; border: 1px solid gray; padding: 2px 2px 2px 2px; width: 13%; height: 13vh; vertical-align: top;}  
 </style>
