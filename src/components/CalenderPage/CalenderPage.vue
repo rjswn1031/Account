@@ -32,6 +32,8 @@ export default {
       if(date < 10) date = '0' + date;
       day += date
       this.selectDay = day;
+      console.log(date);
+      console.log(this.selectDay);
     }
   }
 }

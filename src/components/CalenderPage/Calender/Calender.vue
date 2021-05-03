@@ -23,8 +23,9 @@ export default {
     selectDay: function(){ this.fset_changeDate() }
   },
   created() {
+    console.log(this.selectDay)
     this.fset_changeDate();
-    this.onClickDay(this.selectDay, this.selectDay.substr(8,2));
+    this.onClickDay(this.selectDay, parseInt(this.selectDay.substr(8,2)));
   },
   methods: {
     fset_changeDate() {
@@ -58,6 +59,6 @@ export default {
 </script>
 
 <style>
-  #calenderCon{width: 500px;}
-  .calenderDay {display: inline-block; border: 1px solid black; padding: 2px 2px 2px 2px; width: 50px; height: 50px; vertical-align: top;}  
+  #calenderCon{width: 100%; margin-left: 2.5em;}
+  .calenderDay {display: inline-block; border: 1px solid gray; padding: 2px 2px 2px 2px; width: 13%; height: 6.1em; vertical-align: top;}  
 </style>
