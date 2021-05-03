@@ -15,20 +15,20 @@ export default {
     data() {
         return {
             chartdata: {
-                labels: [1,2,3],
+                labels: [],
                 datasets: [
                     {
-                    label: '수입',
-                    backgroundColor: 'green', //배경 투명
+                    label: '전 달',
+                    backgroundColor: 'green',
                     borderColor: 'green',
                     //tension: 1,
-                    data: [15,20,30]
+                    data: []
                     },
                     {
-                    label: '지출',
-                    backgroundColor: 'red', //배경 투명
+                    label: '이번 달',
+                    backgroundColor: 'red',
                     borderColor: 'red',
-                    data: [20,30,40]
+                    data: []
                     }
                 ]
             },
@@ -42,38 +42,36 @@ export default {
         fget_chartData() {
             var account = null;
             account = common.fget_AccountToStorage();
-            console.log(account);
 
             var incomeCaterory = Object.keys(common.incomeCategory);
-            var expendCategory = Object.keys(common.expendCategory);
 
-            var incomeTotal = []
-            var expendTotal = []
+            var incomeNowTotal = [];
+            var incomePreTotal = [];
+
             for(var index1 = 0; index1 < incomeCaterory.length; index1++) {
-                incomeTotal.push(0);
+                incomeNowTotal.push(0);
+                incomePreTotal.push(0);
             }
-            for(var index2 = 0; index2 < expendCategory.length; index2++) {
-                expendTotal.push(0);
+
+            var income = account.income;
+
+            var dateArr = this.nowDate.split('-')
+            var preMonth = common.fget_DateFormat(new Date(dateArr[0], dateArr[1]-2),'month');
+
+            for(var i = 0; i < income.length; i++) {
+                for(var cate = 0; cate < incomeCaterory.length; cate++) {
+                    if(income[i].date.substr(0,7) == this.nowDate && income[i].category == incomeCaterory[cate]){
+                        incomeNowTotal[cate] = incomeNowTotal[cate] + parseInt(income[i].price);
+                    }
+                    if(income[i].date.substr(0,7) == preMonth && income[i].category == incomeCaterory[cate]){
+                        incomePreTotal[cate] = incomePreTotal[cate] + parseInt(income[i].price);
+                    }
+                }
             }
-            console.log(incomeTotal)
-            console.log(incomeCaterory.length)
-            // var income = account.income;
-            //var expend = account.expend;
 
-            // var dateArr = this.nowDate.split('-')
-            // var preMonth = common.fget_DateFormat(new Date(dateArr[0], dateArr[1]-2),'month');
-            // console.log(preMonth)
-            // for(var i = 0; i < income.length; i++) {
-            //     if(income[i].date.substr(0,7) == this.nowDate){
-            //         switch (income[i].category) {
-            //             case value: incomeTotal[0] = incomeTotal[0] + parseInt(income[i].price); break;
-            //         }
-            //     }
-            // }
-            // for(var j = 0; j < expend.length; j++) {
-
-            // }
-
+            this.chartdata.labels = incomeCaterory;
+            this.chartdata.datasets[0].data = incomePreTotal;
+            this.chartdata.datasets[1].data = incomeNowTotal;
         }
     }
 }
