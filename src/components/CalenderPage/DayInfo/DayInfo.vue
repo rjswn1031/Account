@@ -1,21 +1,23 @@
 <template>
-  <div>
+  <div style="height: 100%;">
     <div style="font-weight: bold; font-size: 1.3em; color: #6C757D">{{today}} 수입 지출 내역</div>
-    <section class="sectionContainer">
-      <span class="nameText" style="color: #4fc08d; margin-left: 0.4em;">수입</span> <span v-b-modal.income><b-icon class="pencilIcon" icon="pencil"></b-icon></span>
-      <InsertModal :modalId="incomeModalId" :optionCategory="incomeCategory" :okFunction="fset_insertAccount"/>
-      <div class="infoTable">
-        <InfoTable :modalId="incomeModalId" :dataArr="incomeArr" :deleteFunction="fset_deleteAccount" :total="incomeTotal"/>
+    <section id="sectionContainer">
+      <div class="divContainer">
+        <span class="nameText" style="color: #4fc08d; margin-left: 0.4em;">수입</span> <span v-b-modal.income><b-icon class="pencilIcon" icon="pencil"></b-icon></span>
+        <InsertModal :modalId="incomeModalId" :optionCategory="incomeCategory" :okFunction="fset_insertAccount"/>
+        <div class="infoTable">
+          <InfoTable :modalId="incomeModalId" :dataArr="incomeArr" :deleteFunction="fset_deleteAccount" :total="incomeTotal"/>
+        </div>
+      </div>
+      <div class="divContainer">
+        <span class="nameText" style="color: red; margin-left: 0.4em;">지출</span> <span v-b-modal.expend><b-icon class="pencilIcon" icon="pencil"></b-icon></span>
+        <InsertModal :modalId="expendModalId" :optionCategory="expendCategory" :okFunction="fset_insertAccount"/>
+        <div class="infoTable">
+          <InfoTable :modalId="expendModalId" :dataArr="expendArr" :deleteFunction="fset_deleteAccount" :total="expendTotal"/>
+        </div>
       </div>
     </section>
-    <section class="sectionContainer">
-      <span class="nameText" style="color: red; margin-left: 0.4em;">지출</span> <span v-b-modal.expend><b-icon class="pencilIcon" icon="pencil"></b-icon></span>
-      <InsertModal :modalId="expendModalId" :optionCategory="expendCategory" :okFunction="fset_insertAccount"/>
-      <div class="infoTable">
-        <InfoTable :modalId="expendModalId" :dataArr="expendArr" :deleteFunction="fset_deleteAccount" :total="expendTotal"/>
-      </div>
-    </section>
-    총합: {{ dayTotal }}
+    <div id="dayTotal">총합: <span v-bind:class="{'colorRed':!isTotalColor,'colorGreen':isTotalColor}">{{ dayTotal }}</span></div>
   </div>
 </template>
 
@@ -41,11 +43,12 @@ export default {
       expendArr: [],
       incomeTotal: 0,
       expendTotal: 0,
-      dayTotal: 0
+      dayTotal: 0,
+      isTotalColor: true
     }
   },
   watch: {
-    today: function() { this.fset_income_expendArr() }
+    today: function() { this.fset_income_expendArr() },
   },
   methods: {
     fset_income_expendArr() {
@@ -75,6 +78,8 @@ export default {
       }
 
       this.dayTotal = this.incomeTotal - this.expendTotal;
+      if(this.dayTotal >= 0) {this.isTotalColor = true}
+      else {this.isTotalColor = false}
     },
     fset_insertAccount(type, content, price, category){
       if(content.length == 0 || price.length == 0 || category.length == 0) { alert('모든 항목을 입력해주세요'); return; }
@@ -110,7 +115,12 @@ export default {
 </script>
 
 <style>
-.sectionContainer { margin-top: 2em; }
+.divContainer { margin-top: 2em; }
 .nameText { font-size: 1.4em; }
-.infoTable {border: 1px solid rgb(187, 187, 187); width: 32em; height: 20em; padding: 1em 1em 1em 1em; border-radius: 10px; margin-top: 0.7em; background-color: rgb(250, 250, 250); }
+.infoTable {border: 1px solid rgb(187, 187, 187); width: 100%; height: 18em; min-height: 18em; padding: 1em 1em 1em 1em; border-radius: 10px; margin-top: 0.7em; background-color: rgb(250, 250, 250); box-sizing: border-box; }
+#sectionContainer {height:90%; overflow: scroll;}
+#sectionContainer::-webkit-scrollbar { display: none; }
+.colorRed { color: red; margin-left: 1em; }
+.colorGreen { color: #4fc08d; margin-left: 1em; }
+#dayTotal { font-size: 1.2em;}
 </style>

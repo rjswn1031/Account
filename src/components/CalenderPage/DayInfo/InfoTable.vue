@@ -12,9 +12,9 @@
                 <th></th>
             </tr>
         </table>
-        <div style="height: 15em; text-align: center; line-height: 15em" v-if="dataArr.length == 0">내역이 존재하지 않습니다</div>
-        <div style="height: 15em; padding-top: 0.7em;" v-if="dataArr.length > 0">
-            <table >
+        <div style="height: 12.5em; min-height: 12.5em; text-align: center; line-height: 12.5em" v-if="dataArr.length == 0">내역이 존재하지 않습니다</div>
+        <div style="height: 12.5em; padding-top: 0.7em;" v-if="dataArr.length > 0">
+            <table id="dataTable">
                 <colgroup>
                 <col width="60%">
                 <col width="35%">
@@ -23,7 +23,7 @@
                 <tr v-for="(arr, index) in dataArr" :key='index'>
                     <td style="border: 1px solid gray;">{{arr.content}}</td>
                     <td style="border: 1px solid gray;">{{arr.price}}</td>
-                    <td><span v-on:click="deleteFunction(modalId, arr.index)"><b-icon class="xIcon" icon="file-excel" style="color:red"></b-icon></span></td>
+                    <td><span v-on:click="deleteFunction(modalId, arr.index)"><b-icon class="xIcon" icon="trash" style="color:red"></b-icon></span></td>
                 </tr>
             </table>
         </div>
@@ -60,4 +60,6 @@ export default {
 <style>
 table {width: 100%;}
 td {text-align: center;}
+#dataTable {overflow: scroll;}
+#dataTable::-webkit-scrollbar { display: none; }
 </style>

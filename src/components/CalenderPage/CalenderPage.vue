@@ -32,15 +32,14 @@ export default {
       if(date < 10) date = '0' + date;
       day += date
       this.selectDay = day;
-      console.log(date);
-      console.log(this.selectDay);
     }
   }
 }
 </script>
 
 <style>
-#calenderSection, #infoSection {display: inline-block; vertical-align: top;}
-#calenderSection {width: 75%; height: 100%; padding-left: 2em;}
-#infoSection {width: 25%; padding: 3em 0 0 2em; height: 100vh; border-left: 1px solid rgb(196, 196, 196);}
+#CalenderPage {height: 94%; box-sizing: border-box;}
+#calenderSection, #infoSection {display: inline-block; vertical-align: top; box-sizing: border-box; height: 100%;}
+#calenderSection {width: 75%; padding-left: 2em;}
+#infoSection {width: 25%; padding: 3em 1em 0 1em; border-left: 1px solid rgb(196, 196, 196);}
 </style>
