@@ -20,16 +20,16 @@ export default {
 </script>
 
 <style>
-@font-face {
+/* @font-face {
     font-family: 'nanumSquare';
     src: url(./fonts/NanumFont/NanumSquareR.ttf) format('woff');
     font-weight: normal;
     font-style: normal;
-}
+} */
 #app {
   height: 100vh;
   box-sizing: border-box;
-  font-family: nanumSquare;
+  /* font-family: nanumSquare; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
