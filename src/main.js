@@ -5,17 +5,7 @@ import './plugins/bootstrap-vue'
 import App from './App.vue'
 import Router from './router/router'
 
-//import "./assets/fontAwesomeIcon.js"
-// import { library, dom } from '@fortawesome/fontawesome-svg-core'
-// import { faAngry } from '@fortawesome/free-solid-svg-icons'
-// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-// library.add(faAngry)
-// dom.watch()
-
-// Vue.config.productionTip = false
-// Vue.component('font-awesome-icon', FontAwesomeIcon)
-
+Vue.config.productionTip = false
 
 new Vue({
   router: Router,

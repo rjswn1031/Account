@@ -22,7 +22,7 @@ export default {
 <style>
 @font-face {
     font-family: 'nanumSquare';
-    src: url(./assets/fonts/NanumFont/NanumSquareR.ttf) format('woff');
+    src: url(./fonts/NanumFont/NanumSquareR.ttf) format('woff');
     font-weight: normal;
     font-style: normal;
 }
