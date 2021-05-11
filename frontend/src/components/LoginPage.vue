@@ -1,22 +1,23 @@
 <template>
   <div id="loginPage">
-      <table id="loginContainer">
-        <tr>
-          <td>ID</td>
-          <td><b-form-input id="input-id" v-model="id" placeholder="Enter ID" required></b-form-input></td>
-        </tr>
-        <tr>
-          <td>PassWord</td>
-          <td><b-form-input id="input-pass" type="password" v-model="pass" placeholder="Enter Password" required></b-form-input></td>
-        </tr>
-        <tr>
-          <button @click="fget_loginChk">로그인</button>
-        </tr>
-        <tr>
-          <button>회원가입</button>
-        </tr>
-        <router-link to="main">임시</router-link>
-      </table>
+    <img id="logo" src="../assets/coin.png" alt="">
+    <table class="mx-auto" id="loginContainer">
+      <tr>
+        <td>ID</td>
+        <td><b-form-input id="input-id" v-model="id" placeholder="Enter ID" required></b-form-input></td>
+      </tr>
+      <tr>
+        <td>PassWord</td>
+        <td><b-form-input id="input-pass" type="password" v-model="pass" placeholder="Enter Password" required></b-form-input></td>
+      </tr>
+      <tr>
+        <button @click="fget_loginChk">로그인</button>
+      </tr>
+      <tr>
+        <button>회원가입</button>
+      </tr>
+      <router-link to="main">임시</router-link>
+    </table>
   </div>
 </template>
 
@@ -47,5 +48,6 @@ export default {
 
 <style>
 #loginPage {background-color: #4fc08d; width: 100vw; height: 100vh; box-sizing: border-box; text-align: center;}
-#loginContainer {background-color: #f2f2f2; width: 30vw; height: 33vh;}
+#loginContainer {position: absolute; background-color: #f2f2f2; width: 30vw; height: 33vh; left: 35vw; top: 430px; }
+#logo {margin-top: 30px;background-color: #4fc08d; width: 400px; height: 400px;}
 </style>

@@ -37,8 +37,15 @@ export default {
     return {
       incomeModalId: 'income',
       expendModalId: 'expend',
-      incomeCategory: {'salary':'월급', 'pinmoney':'용돈'},
-      expendCategory: {'food':'음식', 'cloth':'옷', 'game':'게임'},
+      incomeCategory: [
+        {value:'salary', text:'월급'},
+        {value:'pinmoney', text:'용돈'}
+      ],
+      expendCategory: [
+        {value:'food', text:'음식'},
+        {value:'cloth', text:'옷'},
+        {value:'game', text:'게임'}
+      ],
       incomeArr: [],
       expendArr: [],
       incomeTotal: 0,
