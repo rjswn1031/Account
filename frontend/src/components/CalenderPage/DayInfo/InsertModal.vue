@@ -14,20 +14,20 @@
                         </select> -->
                     </b-col>
                 </b-row>
-                <b-row class="mx-auto" v-for="type in types" :key="type">
+                <b-row class="mx-auto">
                     <b-col sm="3">
-                        <label :for="`type-number`">{{type.name}}</label>
+                        <label :for="`type-number`">금액</label>
                     </b-col>
                     <b-col sm="9">
-                        <b-form-input v-model="price" :id="`type-number`" :type="type.value"></b-form-input>
+                        <b-form-input v-model="price" :id="`type-number`" :type='type'></b-form-input>
                     </b-col>
                 </b-row>
                 <b-row class="mx-auto my-auto">
                     <b-col sm="3">
-                        <label :for="type-content">내용</label>
+                        <label :for="`type-content`">내용</label>
                     </b-col>
                     <b-col sm="9">
-                        <b-form-textarea v-model="content" :id="type-content" rows="3" max-rows="4"></b-form-textarea>
+                        <b-form-textarea v-model="content" :id="`type-content`" rows="3" max-rows="4"></b-form-textarea>
                     </b-col>
                 </b-row>
             </b-container>
@@ -38,15 +38,13 @@
 
 <script>
 export default {
-    props: {optionCategory:Object, okFunction:Function, modalId:String},
+    props: {optionCategory:Array, okFunction:Function, modalId:String},
     data(){
         return {
             content: '',
             price: '',
             category: '',
-            types: [
-                {'value':'number','name':'금액'},
-            ]
+            type: 'number'
         }
     },
     methods:{
