@@ -16,18 +16,18 @@ import Common from "../../../assets/common.js"
 var common = new Common;
 
 export default {
-   props: {selectDay:String, onClickDay:Function},
+   props: {selectDay:String, onClickDay:Function, incomeChk:Array, expendChk:Array, getMonthData:Function},
   data() {
     return{
       day: ['일','월','화','수','목','금','토'],
       days: [],
       on: undefined,
-      incomeChk: [],
-      expendChk: []
     }
   },
   watch: {
-    selectDay: function(){ this.fset_changeDate() }
+    selectDay: function(){ this.fset_changeDate() },
+    //incomeChk: function() { this.fset_changeDate() },
+    //expendChk: function() { this.fset_changeDate() }
   },
   created() {
     this.fset_changeDate();
@@ -42,7 +42,7 @@ export default {
       var day = lastDate.getDate();
       var yoil = new Date(firstDate).getDay();
 
-      this.fget_monthData(day)
+      this.getMonthData()
 
       var week = {};
       var dateArr = [];
@@ -62,39 +62,7 @@ export default {
       this.days = dateArr;
       //return dateArr;
     },
-    fget_monthData(lastDate) {
-      var account = null;
-      account = common.fget_AccountToStorage();
-      var selectMon = this.selectDay.substr(0,7);
-      var incomeCheck = [];
-      var expendCheck = [];
-
-      for(var i = 1; i <= parseInt(lastDate); i++) {
-        console.log('a')
-        incomeCheck.push(false);
-        expendCheck.push(false);
-      }
-
-      var income = account.income;
-      var expend = account.expend;
-      //var incomeArr = [];
-      //var expendArr = [];
-      for(var cnt = 0; cnt < income.length; cnt++) {
-        if(income[cnt].date.indexOf(selectMon) != -1) {
-          var num = parseInt(income[cnt].date.substr(8,2));
-          incomeCheck[num-1] = true;
-        }
-      }
-      for(var cnt1 = 0; cnt1 < expend.length; cnt1++) {
-        if(expend[cnt1].date.indexOf(selectMon) != -1) {
-          var num1 = parseInt(expend[cnt1].date.substr(8,2));
-          expendCheck[num1-1] = true;
-        }
-      }
-
-      this.incomeChk = incomeCheck;
-      this.expendChk = expendCheck;
-    }
+    
   }
 }
 </script>

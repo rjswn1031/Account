@@ -1,42 +1,31 @@
 <template>
     <div id="cal">
     <div id="selectMonthCon">
-        <b-icon class="arrowIcon" icon="caret-left-fill" v-on:click="fget_preMonth"></b-icon>
+        <b-icon class="arrowIcon" icon="caret-left-fill" v-on:click="onPreMon"></b-icon>
         <span id="showMonth">{{ select.substr(0,7) }}</span>
-        <b-icon class="arrowIcon" icon="caret-right-fill" v-on:click="fget_postMonth"></b-icon> <br>
+        <b-icon class="arrowIcon" icon="caret-right-fill" v-on:click="onPostMon"></b-icon> <br>
         <span id="dayText">날짜를 선택해주세요</span>
     </div>
-    <Calender :selectDay= "select" :onClickDay='onClickDay'></Calender>
+    <Calender :incomeChk="incomeChk" :expendChk='expendChk' :getMonthData='getMonthData' :selectDay= "select" :onClickDay='onClickDay'></Calender>
     </div>
 </template>
 
 <script>
 import Calender from "../Calender/Calender.vue";
-import Common from "../../../assets/common.js"
-var common = new Common;
+//import Common from "../../../assets/common.js"
+//var common = new Common;
 
 export default {
     components: { Calender },
-    props: ['onClickDay'],
+    props: ['onClickDay','select','onPreMon','onPostMon','getMonthData','incomeChk','expendChk'],
     data() {
         return {
-            select: common.fget_DateFormat(new Date, 'day'),//this.getDateFormat(new Date, 'day'),
+
         }
     },
 
     methods: {
-        fget_preMonth(){
-            var dateArr = this.select.split('-')
-            var preDate = common.fget_DateFormat(new Date(dateArr[0], parseInt(dateArr[1])-2, 1), 'day');
-
-            this.select = preDate;
-        },
-        fget_postMonth(){
-            var dateArr = this.select.split('-')
-            var preDate = common.fget_DateFormat(new Date(dateArr[0], parseInt(dateArr[1]), 1), 'day');
-
-            this.select = preDate;
-        }
+        
     }
 };
 </script>

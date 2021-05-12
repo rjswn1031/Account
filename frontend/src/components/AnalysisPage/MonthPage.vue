@@ -1,14 +1,14 @@
 <template>
-  <div>
-      <section>
+  <div style="height: 89vh;">
+      <section id="money">
           <MoneyAnalysis :nowDate="nowMonth"/>
       </section>
-      <section>
+      <section id="monthChart">
           <ChartAnalysis :nowDate="nowMonth"/>
       </section>
-      <section>
-        <div>
-            <b-tabs content-class="mt-3">
+      <section id="cateChart">
+        <div style="height: 100%;">
+            <b-tabs content-class="mt-3" style="height: 100%">
                 <b-tab title="수입" active><IncomeCategoryChart :nowDate="nowMonth"/></b-tab>
                 <b-tab title="지출"><ExpendCategoryChart  :nowDate="nowMonth"/></b-tab>
             </b-tabs>
@@ -28,10 +28,10 @@ var common = new Common;
 
 export default {
     components: {
-        MoneyAnalysis,
-        ChartAnalysis,
-        IncomeCategoryChart,
-        ExpendCategoryChart
+       MoneyAnalysis,
+       ChartAnalysis,
+       IncomeCategoryChart,
+       ExpendCategoryChart
     },
     data() {
         return {
@@ -48,5 +48,10 @@ export default {
 </script>
 
 <style>
-
+section {border: 1px solid black}
+#money { width: 34.5vw; height: 89vh; position: absolute; box-sizing: border-box;}
+#monthChart { width: 64vw; height: 44.5vh; left: 34.5vw; position: absolute; }
+#monthChart #line-chart { height: 45vh !important;}
+#cateChart { width: 64vw; height: 44.5vh; left: 34.5vw; bottom: 0px; position: absolute; }
+#cateChart #line-chart { height: 45vh !important; }
 </style>

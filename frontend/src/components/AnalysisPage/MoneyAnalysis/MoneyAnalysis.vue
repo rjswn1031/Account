@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="AnalysisCon">
       수입 : {{ incomeTotal }}
       <AnalysisInfoTable :dataArr="incomeArr"/>
       지출 : {{ expendTotal }}

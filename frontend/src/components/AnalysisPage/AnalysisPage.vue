@@ -1,6 +1,8 @@
 <template>
   <div>
-      <span><router-link to="month">MONTH</router-link></span> <span><router-link to="year">YEAR</router-link></span>
+      <div style="height: 3vh; margin: 1vh 0px 1vh 0px;">
+        <span><router-link class="toggleMY" to="month">MONTH</router-link></span> <span><router-link class="toggleMY" to="year">YEAR</router-link></span>
+      </div>
       <router-view/>
   </div>
 </template>
@@ -12,5 +14,5 @@ export default {
 </script>
 
 <style>
-
+.toggleMY {color: #4fc08d !important; margin: 0px 0px 0px 20px;}
 </style>

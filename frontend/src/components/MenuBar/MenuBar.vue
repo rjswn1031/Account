@@ -1,5 +1,4 @@
 <template>
-<div>
   <b-navbar toggleable="lg" type="dark" variant="info" id="navBar">
     <router-link to="/main" tag="b-navbar-brand"><b-icon icon="house"></b-icon>&nbsp;&nbsp;HOME</router-link>
 
@@ -27,7 +26,6 @@
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
-</div>
 </template>
 
 <script>
@@ -43,4 +41,5 @@ export default {
 
 <style>
 .bg-info {background-color: #4fc08d !important;}
+#navBar {height: 5.7vh !important; box-sizing: border-box;}
 </style>

@@ -28,7 +28,7 @@ import Common from '../../../assets/common.js'
 var common = new Common;
 
 export default {
-  props: ['today'],
+  props: ['today','getMonthData'],
   components: {
     InsertModal,
     InfoTable
@@ -100,6 +100,7 @@ export default {
 
       localStorage.setItem('account',JSON.stringify(account));
       this.fset_income_expendArr();
+      this.getMonthData();
     },
     fset_deleteAccount(type, index){
       //var dataArr = null;
@@ -115,6 +116,7 @@ export default {
 
       localStorage.setItem('account',JSON.stringify(account));
       this.fset_income_expendArr();
+      this.getMonthData();
     }
   }
 

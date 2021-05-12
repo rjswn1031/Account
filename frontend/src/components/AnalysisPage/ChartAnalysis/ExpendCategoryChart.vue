@@ -33,8 +33,11 @@ export default {
                 ]
             },
             options: {
+                legend: {
+                    position: 'right'
+                },
                 responsive: true,
-                //maintainAspectRatio: false
+                maintainAspectRatio: false
             },
         }
     },
