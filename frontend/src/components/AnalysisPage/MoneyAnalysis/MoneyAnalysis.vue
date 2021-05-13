@@ -50,8 +50,8 @@ export default {
                     this.incomeArr.push(income[i]);
                 }
             }
-            for(var j = 0; j < income.length; j++) {
-                if(income[j].date.indexOf(this.nowDate) != -1) {
+            for(var j = 0; j < expend.length; j++) {
+                if(expend[j].date.indexOf(this.nowDate) != -1) {
                     this.expendTotal = parseInt(this.expendTotal) + parseInt(expend[j].price);
                     this.expendArr.push(expend[j]);
                 }

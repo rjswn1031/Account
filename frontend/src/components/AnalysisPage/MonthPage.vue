@@ -4,15 +4,18 @@
           <MoneyAnalysis :nowDate="nowMonth"/>
       </section>
       <section id="monthChart">
-          <ChartAnalysis :nowDate="nowMonth"/>
+        <!-- <span class="title">월/카테고리 별 수입 지출 내역</span> -->
+        <span class="title">소비 패턴 분석</span>
+        <ChartAnalysis :nowDate="nowMonth"/>
+        <ExpendCategoryChart  :nowDate="nowMonth"/>
       </section>
       <section id="cateChart">
-        <div style="height: 100%;">
+        <!-- <div style="height: 100%;">
             <b-tabs content-class="mt-3" style="height: 100%">
                 <b-tab title="수입" active><IncomeCategoryChart :nowDate="nowMonth"/></b-tab>
-                <b-tab title="지출"><ExpendCategoryChart  :nowDate="nowMonth"/></b-tab>
+                <b-tab title="지출"></b-tab>
             </b-tabs>
-        </div>
+        </div> -->
       </section>
   </div>
 </template>
@@ -20,7 +23,7 @@
 <script>
 import MoneyAnalysis from './MoneyAnalysis/MoneyAnalysis.vue'
 import ChartAnalysis from './ChartAnalysis/ChartAnalysis.vue'
-import IncomeCategoryChart from './ChartAnalysis/IncomeCategoryChart.vue'
+//import IncomeCategoryChart from './ChartAnalysis/IncomeCategoryChart.vue'
 import ExpendCategoryChart from './ChartAnalysis/ExpendCategoryChart.vue'
 
 import Common from '../../assets/common.js'
@@ -30,7 +33,7 @@ export default {
     components: {
        MoneyAnalysis,
        ChartAnalysis,
-       IncomeCategoryChart,
+       //IncomeCategoryChart,
        ExpendCategoryChart
     },
     data() {
@@ -49,9 +52,11 @@ export default {
 
 <style>
 section {border: 1px solid black}
+.title { color: #4fc08d; font-size: 2.5vh; }
+
 #money { width: 34.5vw; height: 89vh; position: absolute; box-sizing: border-box;}
 #monthChart { width: 64vw; height: 44.5vh; left: 34.5vw; position: absolute; }
-#monthChart #line-chart { height: 45vh !important;}
+#monthChart #line-chart { height: 42vh !important;}
 #cateChart { width: 64vw; height: 44.5vh; left: 34.5vw; bottom: 0px; position: absolute; }
-#cateChart #line-chart { height: 45vh !important; }
+#cateChart #bar-chart { height: 37vh !important; }
 </style>
