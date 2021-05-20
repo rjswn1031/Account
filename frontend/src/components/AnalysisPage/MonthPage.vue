@@ -1,8 +1,9 @@
 <template>
   <div style="height: 89vh;">
-      <section id="money">
+      <section id="money" class="col-4">
           <MoneyAnalysis :nowDate="nowMonth"/>
       </section>
+      <div class="col-8">
       <section id="monthChart">
         <!-- <span class="title">월/카테고리 별 수입 지출 내역</span> -->
         <span class="title">소비 패턴 분석</span>
@@ -17,6 +18,7 @@
             </b-tabs>
         </div> -->
       </section>
+      </div>
   </div>
 </template>
 
@@ -54,9 +56,9 @@ export default {
 section {border: 1px solid black}
 .title { color: #4fc08d; font-size: 2.5vh; }
 
-#money { width: 34.5vw; height: 89vh; position: absolute; box-sizing: border-box;}
-#monthChart { width: 64vw; height: 44.5vh; left: 34.5vw; position: absolute; }
+/* #money { width: 34.5vw; height: 89vh; position: absolute; box-sizing: border-box;} */
+/* #monthChart { width: 64vw; height: 44.5vh; left: 34.5vw; position: absolute; } */
 #monthChart #line-chart { height: 42vh !important;}
-#cateChart { width: 64vw; height: 44.5vh; left: 34.5vw; bottom: 0px; position: absolute; }
+/* #cateChart { width: 64vw; height: 44.5vh; left: 34.5vw; bottom: 0px; position: absolute; } */
 #cateChart #bar-chart { height: 37vh !important; }
 </style>
