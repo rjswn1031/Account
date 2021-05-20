@@ -36,6 +36,7 @@ export default {
   methods: {
     fget_loginChk() {
       this.$http.get('/api/member/'+ this.id +'/' + this.pass).then((res) => {
+        console.log(res);
         if(res.data.length >= 1) {
           localStorage.setItem('loginInfo', JSON.stringify(res.data));
           location.href = '/main';
@@ -51,11 +52,11 @@ export default {
 <style>
 .loginInput {height: 50px !important; color: #4fc08d !important; }
 
-#loginPage {background-color: #4fc08d; width: 100vw; height: 100vh; box-sizing: border-box; text-align: center;}
-#loginContainer {position: absolute; width: 30vw; height: 33vh; left: 35vw; top: 470px; border-radius: 5px;}
+#loginPage {background-color: #4fc08d; width: 100%; height: 100%; box-sizing: border-box; text-align: center;}
+#loginContainer {position: absolute; width: 30vw; height: 33vh; left: 35vw; top: 50vh; border-radius: 5px;}
 
-#logo {margin-top: 0px; background-color: #4fc08d; width: 500px; height: 500px; opacity: 0.5;}
-#logoText {position: absolute; top: 200px; width: 100vw; color: white; font-weight: bold; font-size: 100px; text-align: center;}
+#logo {margin-top: 10vh; background-color: #4fc08d; width: 500px; height: 500px; opacity: 0.5;}
+#logoText {position: absolute; top: 200px; width: 100vw; color: white; font-weight: bold; font-size: 100px; text-align: center; margin-top: 10vh;}
 #loginBtn {width: 100%; height: 50px; background-color: white; color: #4fc08d; font-weight: bold; border-radius: 5px; border: 1px solid white; margin-top: 5px;}
 #loginBtn:hover {background-color: #4fc08d; color: white;}
 

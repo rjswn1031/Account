@@ -4,6 +4,26 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// ================ DB Connection ====================
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+  host: 'localhost',
+  port: 3306,
+  user: 'admin',
+  password: 'admin',
+  database: 'account'
+})
+
+connection.connect(function(err) {
+  if(err) {
+    console.log('connection error');
+    console.log(err);
+    throw err;
+  }
+})
+
+
 // ================ router ====================
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
