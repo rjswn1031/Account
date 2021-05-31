@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body { height: 100%; margin: 0; font-size: 15px; }
+        div { border: 1px solid black; box-sizing: border-box; }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        #header_bar { flex: 0 0 4em; }
+        #main { 
+            flex: 1 1 0; 
+            display: flex;
+            flex-direction: row;
+            /* flex-wrap: wrap; */
+        }
+        #main1 { width: 70%; background-color: chocolate; }
+        #main2 { width: 30%; background-color: chartreuse; }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header_bar"></div>
+        <div id="main">
+            <div id="main1"></div>
+            <div id="main2">asdfasdafsd</div>
+        </div>
+    </div>
+</body>
+</html>

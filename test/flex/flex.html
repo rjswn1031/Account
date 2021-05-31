@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body { height: 100%; margin: 0; }
+        div { border: 1px solid black; }
+        #container {
+            display: flex;
+            flex-direction: column; /* 방향: 가로 세로 */
+            flex-wrap: wrap; /* 공간이 부족할 때 자동 줄바꿈 처리 */
+            justify-content: center;
+            align-content: center;
+            height: 100%;
+
+            box-sizing: border-box;
+            padding: 50px 0px;
+        }
+        .item { border: 1px solid black; width: 500px; flex: 0.7 0 0; text-align: center; }
+        .item:nth-child(1) { flex: 5 0 0; }
+        .item:nth-child(5) { flex: 0.5 0 0; }
+
+        #itemCon {
+            display: flex;
+            justify-content: center;
+        }
+
+        .item1 { flex: 1 0 0; }
+        .item1:nth-child(2) { flex: 1 0 0; }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="item" style="height: 30%;">img</div>
+        <div class="item">id</div>
+        <div class="item">pw</div>
+        <div class="item">btn</div>
+        <div id="itemCon" class="item">
+            <div class="item1">chk</div>
+            <div class="item1">find</div>
+        </div>
+    </div>
+
+            
+        <!-- <div id="container">
+            <div class="item">box1</div>
+            <div id="itemContainer1">
+                <div class="item">box2</div>
+                <div class="item">box3</div>
+                <div id="itemContainer2">
+                    <div class="item">box4</div>
+                    <div class="item">box5</div>
+                </div>
+            </div>
+            <div class="item">box5</div>
+        </div> -->
+</body>
+</html>

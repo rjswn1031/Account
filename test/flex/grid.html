@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {width: 100%; height: 100%; margin: 0;}
+        div {border: 1px solid black;}
+        #container {
+            display: grid;
+            /* grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 1fr;
+            row-gap: 10px;
+            column-gap: 10px; */
+            grid-template-areas: 
+                "header header header"
+                " a main b "
+                "footer footer footer"
+                ;
+            grid-auto-flow: dense;
+        }
+        /* .item:nth-child(1) { grid-column: 1 / 4; } */
+        .item:nth-child(1) { grid-area: header; }
+        .item:nth-child(4) { grid-area: a; }
+        .item:nth-child(5) { grid-area: main; }
+        .item:nth-child(6) { grid-area: b; }
+        .item:nth-child(8) { grid-area: footer; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="item">div1</div>
+        <div class="item">div2</div>
+        <div class="item">div3</div>
+        <div class="item">div4</div>
+        <div class="item">div5</div>
+        <div class="item">div6</div>
+        <div class="item">div7</div>
+        <div class="item">div8</div>
+        <div class="item">div9</div>
+        <div class="item">div10</div>
+    </div>
+</body>
+</html>
