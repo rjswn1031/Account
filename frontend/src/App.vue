@@ -27,9 +27,10 @@ export default {
     font-style: normal;
 }
 #app {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
-  font-family: nanumSquare;
+  /* font-family: nanumSquare; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

@@ -3,9 +3,7 @@
     <section id="calenderSection">
       <CalenderContainer :incomeChk='incomeChk' :expendChk='expendChk' :select='select' :getMonthData='fget_monthData' :onPreMon='fget_preMonth' :onPostMon='fget_postMonth' :onClickDay='fget_SelectDay'/>
     </section>
-    <section id="infoSection">
-      <DayInfo :today='selectDay' :getMonthData='fget_monthData'/>
-    </section>
+    <DayInfo :today='selectDay' :getMonthData='fget_monthData'/>
 
   </div>
 </template>
@@ -93,8 +91,11 @@ export default {
 </script>
 
 <style>
-#CalenderPage {height: 94%; box-sizing: border-box;}
+#CalenderPage { display: flex; flex-direction: row; width: 100%; height: 100%; }
+#CalenderPage > #calenderSection { flex: 7 0 0; }
+#CalenderPage > #infoSection { flex: 3 0 0; }
+/* #CalenderPage {height: 94%; box-sizing: border-box;}
 #calenderSection, #infoSection {display: inline-block; vertical-align: top; box-sizing: border-box; height: 100%;}
 #calenderSection {width: 75%; padding-left: 2em;}
-#infoSection {width: 25%; padding: 3em 1em 0 1em; border-left: 1px solid rgb(196, 196, 196);}
+#infoSection {width: 25%; padding: 3em 1em 0 1em; border-left: 1px solid rgb(196, 196, 196);} */
 </style>

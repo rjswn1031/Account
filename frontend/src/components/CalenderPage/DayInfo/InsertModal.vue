@@ -1,7 +1,11 @@
 <template>
   <div>
       <div>
-        <b-modal @hidden='hiddenFunction' @ok='okFunction(modalId, content, price, category)' :id="modalId" title="추가하기">
+        <b-modal @hidden='hiddenFunction' @ok='okFunction(modalId, content, price, category)' :id="modalId" title="가계부 작성">
+            <b-tabs content-class="mt-3">
+                <b-tab title="수입" active><p>I'm the first tab</p></b-tab>
+                <b-tab title="지출"><p>I'm the second tab</p></b-tab>
+            </b-tabs>
             <b-container fluid>
                 <b-row class="mx-auto">
                     <b-col sm="3">

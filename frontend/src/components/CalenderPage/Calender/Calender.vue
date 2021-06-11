@@ -32,6 +32,7 @@ export default {
   created() {
     this.fset_changeDate();
     this.onClickDay(this.selectDay, parseInt(this.selectDay.substr(8,2)));
+    this.on = parseInt(this.selectDay.substr(8,2));
   },
   methods: {
     fset_changeDate() {

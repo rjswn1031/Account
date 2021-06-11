@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="MainPage">
     <MenuBar/>
     <router-view/>
   </div>
@@ -24,5 +24,6 @@ export default {
 </script>
 
 <style>
-
+section { border: 0em !important; }
+#MainPage { display: flex; flex-direction: column; width: 100%; height: 100%; }
 </style>
