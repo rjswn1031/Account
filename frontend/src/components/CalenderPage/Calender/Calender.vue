@@ -72,5 +72,5 @@ export default {
   .yoil { background-color: #dadada; height: auto !important; font-size: 1em !important;}
   #calenderCon{width: 100%; margin-left: 2.5em;}
   .calenderDay {font-size: 1.1em;display: inline-block; border: 1px solid gray; padding: 2px 2px 2px 2px; width: 13%; height: 13vh; vertical-align: top;}  
-  .on { background-color: #4fc08d; color: white;}
+  .calenderWeek .on { background-color: #4fc08d; color: white;}
 </style>

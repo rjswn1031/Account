@@ -15,72 +15,31 @@
       </div>
     </div>
     <div id="infoBtnContainer">
-      <div class="infoBtn"><span v-b-modal.income class="btnAdd">+</span></div>
+      <div class="infoBtn"><span class="btnAdd" @click="openModal">+</span></div>
       <div class="infoBtn"><span class="btnSort"><b-icon class="listIcon" icon="list"></b-icon></span></div>
     </div>
-    <InsertModal :modalId="incomeModalId" :optionCategory="incomeCategory" :okFunction="fset_insertAccount"/>
+    <Modal v-if="isModalOpen" :closeModal='closeModal' >
+      <InsertModal :incomeCategory="incomeCategory" :expendCategory="expendCategory" :insertAccount="fset_insertAccount" :closeModal="closeModal" />
+    </Modal>
   </section>
-    <!-- <div class="accountContainer">
-      <div id="incomeContainer" class="contentTitle">
-        <span>수입</span><span v-b-modal.income><b-icon class="pencilIcon" icon="pencil"></b-icon></span>
-        <InsertModal :modalId="incomeModalId" :optionCategory="incomeCategory" :okFunction="fset_insertAccount"/>
-      </div> 
-      <InfoTable :modalId="incomeModalId" :dataArr="incomeArr" :deleteFunction="fset_deleteAccount" :total="incomeTotal"/>
-    </div>
-    <div class="accountContainer">
-      <div id="expendContainer" class="contentTitle">
-        <span>지출</span><span v-b-modal.income><b-icon class="pencilIcon" icon="pencil"></b-icon></span>
-        <InsertModal :modalId="expendModalId" :optionCategory="expendCategory" :okFunction="fset_insertAccount"/>
-      </div> 
-      <InfoTable :modalId="expendModalId" :dataArr="expendArr" :deleteFunction="fset_deleteAccount" :total="expendTotal"/>
-    </div>
-    <div id="dayTotalContainer">총합: <span v-bind:class="{'colorRed':!isTotalColor,'colorGreen':isTotalColor}">{{ dayTotal }}</span></div> -->
-  <!-- <div style="height: 100%;">
-    <section id="sectionContainer">
-      <div class="divContainer">
-        <span class="nameText" style="color: #4fc08d; margin-left: 0.4em;">수입</span> <span v-b-modal.income><b-icon class="pencilIcon" icon="pencil"></b-icon></span>
-        <InsertModal :modalId="incomeModalId" :optionCategory="incomeCategory" :okFunction="fset_insertAccount"/>
-        <div class="infoTable">
-          <InfoTable :modalId="incomeModalId" :dataArr="incomeArr" :deleteFunction="fset_deleteAccount" :total="incomeTotal"/>
-        </div>
-      </div>
-      <div class="divContainer">
-        <span class="nameText" style="color: red; margin-left: 0.4em;">지출</span> <span v-b-modal.expend><b-icon class="pencilIcon" icon="pencil"></b-icon></span>
-        <InsertModal :modalId="expendModalId" :optionCategory="expendCategory" :okFunction="fset_insertAccount"/>
-        <div class="infoTable">
-          <InfoTable :modalId="expendModalId" :dataArr="expendArr" :deleteFunction="fset_deleteAccount" :total="expendTotal"/>
-        </div>
-      </div>
-    </section>
-    <div id="dayTotal">총합: <span v-bind:class="{'colorRed':!isTotalColor,'colorGreen':isTotalColor}">{{ dayTotal }}</span></div>
-  </div> -->
 </template>
 
 <script>
-import InsertModal from './InsertModal.vue'
-//import InfoTable from './InfoTable.vue'
+import Modal from '../../Modal/Mask.vue'
+import InsertModal from '../../Modal/InsertAccountModal.vue'
 import Common from '../../../assets/common.js'
 var common = new Common;
 
 export default {
   props: ['today','getMonthData'],
   components: {
-    InsertModal
-    //InfoTable
+    Modal,
+    InsertModal,
   },
   data(){
     return {
       incomeModalId: 'income',
       expendModalId: 'expend',
-      incomeCategory: [
-        {value:'salary', text:'월급'},
-        {value:'pinmoney', text:'용돈'}
-      ],
-      expendCategory: [
-        {value:'food', text:'음식'},
-        {value:'cloth', text:'옷'},
-        {value:'game', text:'게임'}
-      ],
       nowDay: '',
       incomeArr: [],
       expendArr: [],
@@ -88,7 +47,10 @@ export default {
       incomeTotal: 0,
       expendTotal: 0,
       dayTotal: 0,
-      isTotalColor: true
+      isTotalColor: true,
+      isModalOpen: false,
+      incomeCategory: common.incomeCategory,
+      expendCategory: common.expendCategory,
     }
   },
   watch: {
@@ -143,9 +105,10 @@ export default {
       localStorage.setItem('account',JSON.stringify(account));
       this.fset_income_expendArr();
       this.getMonthData();
+
+      this.closeModal();
     },
     fset_deleteAccount(type, index){
-      //var dataArr = null;
       var account = null;
       account = common.fget_AccountToStorage();
 
@@ -171,6 +134,12 @@ export default {
       });
       array = this.incomeArr.concat(this.expendArr)
       this.totalArr = array;
+    },
+    openModal(){
+      this.isModalOpen = true;
+    },
+    closeModal(){
+      this.isModalOpen = false;
     }
   }
 

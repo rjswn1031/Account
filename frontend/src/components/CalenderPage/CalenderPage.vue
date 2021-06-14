@@ -3,8 +3,7 @@
     <section id="calenderSection">
       <CalenderContainer :incomeChk='incomeChk' :expendChk='expendChk' :select='select' :getMonthData='fget_monthData' :onPreMon='fget_preMonth' :onPostMon='fget_postMonth' :onClickDay='fget_SelectDay'/>
     </section>
-    <DayInfo :today='selectDay' :getMonthData='fget_monthData'/>
-
+    <DayInfo :today='selectDay' :getMonthData='fget_monthData' />
   </div>
 </template>
 
@@ -23,7 +22,6 @@ export default {
   data() {
     return {
       selectDay: '',
-      isMaskOpen: false,
       select: common.fget_DateFormat(new Date, 'day'),
       incomeChk: [],
       expendChk: []
