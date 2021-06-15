@@ -12,7 +12,7 @@ export default {
   created() { this.fset_monthData() },
   data() {
       return {
-          chartdata: {
+            chartdata: {
                 labels: [],
                 datasets: [
                     {
@@ -34,8 +34,8 @@ export default {
                 legend: {
                     position: 'right'
                 },
-                responsive: true,
-                maintainAspectRatio: false
+                responsive: false,
+                maintainAspectRatio: false,
             },
             monthArr: []
       }

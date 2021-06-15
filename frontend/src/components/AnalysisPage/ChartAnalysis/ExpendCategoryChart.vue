@@ -36,7 +36,7 @@ export default {
                 legend: {
                     position: 'right'
                 },
-                responsive: true,
+                responsive: false,
                 maintainAspectRatio: false
             },
         }

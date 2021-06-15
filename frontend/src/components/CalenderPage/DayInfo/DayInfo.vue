@@ -8,7 +8,7 @@
     </div>
     <div id="infoContentContainer">
       <div class="contentContainer" v-for="(arr, index) in totalArr" :key="index">
-        <div class="infoContent">{{arr.category}}</div>
+        <div class="infoContent">{{arr.type == 'income' ? incomeCategory[arr.category] : expendCategory[arr.category]}}</div>
         <div class="infoContent">{{arr.content}}</div>
         <div class="infoContent" v-bind:class="{'colorRed':arr.type == 'expend','colorGreen':arr.type == 'income'}">{{parseInt(arr.price).toLocaleString()}}</div>
         <div class="infoContent" v-on:click="fset_deleteAccount(arr.type, arr.index)">×</div>
@@ -16,7 +16,7 @@
     </div>
     <div id="infoBtnContainer">
       <div class="infoBtn"><span class="btnAdd" @click="openModal">+</span></div>
-      <div class="infoBtn"><span class="btnSort"><b-icon class="listIcon" icon="list"></b-icon></span></div>
+      <div class="infoBtn"><span class="btnSort" @click="testFunc"><b-icon class="listIcon" icon="list"></b-icon></span></div>
     </div>
     <Modal v-if="isModalOpen" :closeModal='closeModal' >
       <InsertModal :incomeCategory="incomeCategory" :expendCategory="expendCategory" :insertAccount="fset_insertAccount" :closeModal="closeModal" />
@@ -140,6 +140,9 @@ export default {
     },
     closeModal(){
       this.isModalOpen = false;
+    },
+    testFunc(){
+      alert('준비중..');
     }
   }
 
@@ -162,8 +165,8 @@ export default {
 
   #infoSection > #infoBtnContainer { flex: 1 1 0%; width: 100%; display: flex; align-items: center;  }
   #infoSection > #infoBtnContainer .infoBtn { flex: 5 1 0%; text-align: center; height: 3.5em; background-color: #f5f5f5; }
-  #infoSection > #infoBtnContainer .infoBtn span.btnAdd { font-size: 2.3em; color: #828282; }
-  #infoSection > #infoBtnContainer .infoBtn span.btnSort { font-size: 2.1em;  color: #828282; }
+  #infoSection > #infoBtnContainer .infoBtn span.btnAdd { font-size: 2.3em; color: #828282; cursor: pointer; }
+  #infoSection > #infoBtnContainer .infoBtn span.btnSort { font-size: 2.1em;  color: #828282; cursor: pointer; }
 
   .colorRed { color: red; }
   .colorGreen { color: #4fc08d; }
