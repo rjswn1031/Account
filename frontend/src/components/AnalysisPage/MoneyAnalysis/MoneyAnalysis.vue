@@ -1,6 +1,5 @@
 <template>
   <div id="MoneyAnalysis">
-      <div class="pageTitle">● 월간 사용 내역</div>
       <div id="MoneyAnalysisTop">
           <span>{{nowDate}} 현황</span>
           <span class="totalContainer" v-bind:class="{'colorGreen': incomeTotal - expendTotal >= 0,'colorRed': incomeTotal - expendTotal < 0}">\&nbsp;&nbsp;{{ incomeTotal - expendTotal }}</span>
@@ -29,7 +28,9 @@
         </div>
 
       </div>
-      <div id="MoneyAnalysisBottom"></div>
+      <div id="MoneyAnalysisBottom">
+          <div></div>
+      </div>
       
   </div>
 </template>
@@ -112,8 +113,7 @@ export default {
 </script>
 
 <style>
-    #MoneyAnalysis { display: flex; flex-direction: column; align-items: center; padding: 1.5em; width: 100%; height: 100%; }
-    #MoneyAnalysis > .pageTitle { flex: 0.9 0.9 0; align-self: flex-start; justify-self: flex-start; color: #4fc08d; font-size: 1.2em; font-weight: 400; }
+    #MoneyAnalysis { flex: 1 0 0; display: flex; flex-direction: column; align-items: center; padding: 1.5em; width: 100%; }
 
     #MoneyAnalysis #MoneyAnalysisTop { flex: 2.2 2.5 0; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; color: gray; }
     #MoneyAnalysis #MoneyAnalysisTop > .totalContainer { font-size: 3em; font-weight: bold; }
