@@ -1,6 +1,6 @@
 <template>
   <div id="analysisPage">
-    <div id="pageTitleContainer">자산 분석</div>
+    <div id="pageTitleContainer"><b-icon icon="clipboard-data"></b-icon>자산 분석</div>
     <div id="analysisPageContentContainer">
       <div id="MoneyAnalysisContainer">
         <div id="MoneyAnalysisCon">
