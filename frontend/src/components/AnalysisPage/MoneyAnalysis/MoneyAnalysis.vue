@@ -2,7 +2,7 @@
   <div id="MoneyAnalysis">
       <div id="MoneyAnalysisTop">
           <span>{{nowDate}} 현황</span>
-          <span class="totalContainer" v-bind:class="{'colorGreen': incomeTotal - expendTotal >= 0,'colorRed': incomeTotal - expendTotal < 0}">\&nbsp;&nbsp;{{ incomeTotal - expendTotal }}</span>
+          <span class="totalContainer" v-bind:class="{'colorGreen': incomeTotal - expendTotal >= 0,'colorRed': incomeTotal - expendTotal < 0}">\&nbsp;&nbsp;{{ (incomeTotal - expendTotal).toLocaleString() }}</span>
       </div>
       <div id="MoneyAnalysisContent">
         <div class="analyCon">

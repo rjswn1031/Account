@@ -150,12 +150,12 @@ export default {
 </script>
 <style>
   #infoSection { display: flex; flex-direction: column; flex-wrap: wrap; border-left: 1px solid #c7c7c7 !important; }
-  #infoSection > #infoSectionTitie { flex: 1 1 0%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2em; color: #fff; background-color: #4fc08d; border-top: 1px solid #49a27a; text-align: center; width: 100%; }
+  #infoSection > #infoSectionTitie { flex: 0 0 4.2em; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2em; color: #fff; background-color: #4fc08d; border-top: 1px solid #49a27a; text-align: center; width: 100%; }
 
-  #infoSection > #displayContainer { flex: 1 1 0%; display: flex; flex-direction: row; align-items: center; width: 100%; color: #6C757D; background-color: #f5f5f5; font-weight: bold; font-size: 0.9em; }
+  #infoSection > #displayContainer { flex: 0 0 4.2em; display: flex; flex-direction: row; align-items: center; width: 100%; color: #6C757D; background-color: #f5f5f5; font-weight: bold; font-size: 0.9em; }
   #infoSection > #displayContainer .infoDisplay { flex: 33.33 33.33 0%; text-align: center; }
 
-  #infoSection > #infoContentContainer { flex: 7 1 0%; padding: 0.3em 0em; }
+  #infoSection > #infoContentContainer { flex: 1 0 0; display: flex; flex-direction: column; flex-wrap: nowrap; overflow-y: scroll; padding: 0.3em .5em 0.3em 1em; margin-right: .3em; }
   #infoSection > #infoContentContainer .contentContainer { display: flex; padding: 0em 0.3em; border: 1px solid #cacaca; }
   #infoSection > #infoContentContainer .contentContainer .infoContent { flex: 2 1 0; padding: 0em 0.4em; font-size: 0.8em; font-weight: bold; height: 3em; }
   #infoSection > #infoContentContainer .contentContainer .infoContent:nth-child(1) { flex: 1.3 1 0; display: flex; justify-content: center; align-items: center; }
@@ -163,11 +163,13 @@ export default {
   #infoSection > #infoContentContainer .contentContainer .infoContent:nth-child(3) { flex: 2 1 0; text-align: right; display: flex; justify-content: flex-end; align-items: center; }
   #infoSection > #infoContentContainer .contentContainer .infoContent:nth-child(4) { flex: 0.2 1 0; text-align: right; display: flex; justify-content: flex-end; align-items: center; color: red; }
 
-  #infoSection > #infoBtnContainer { flex: 1 1 0%; width: 100%; display: flex; align-items: center;  }
+  #infoSection > #infoBtnContainer { flex: 0 0 4.2em; width: 100%; display: flex; align-items: center;  }
   #infoSection > #infoBtnContainer .infoBtn { flex: 5 1 0%; text-align: center; height: 3.5em; background-color: #f5f5f5; }
   #infoSection > #infoBtnContainer .infoBtn span.btnAdd { font-size: 2.3em; color: #828282; cursor: pointer; }
   #infoSection > #infoBtnContainer .infoBtn span.btnSort { font-size: 2.1em;  color: #828282; cursor: pointer; }
 
+  #infoSection > #infoContentContainer::-webkit-scrollbar { width: 0.3em; opacity: 1; }
+  #infoSection > #infoContentContainer::-webkit-scrollbar-thumb { background-color: gray; border-radius: .5em; width: .1em; }
   .colorRed { color: red; }
   .colorGreen { color: #4fc08d; }
 </style>
