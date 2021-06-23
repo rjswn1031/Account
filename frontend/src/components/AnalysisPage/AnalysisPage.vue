@@ -1,6 +1,6 @@
 <template>
   <div id="analysisPage">
-    <div id="pageTitleContainer"><b-icon icon="clipboard-data"></b-icon>자산 분석</div>
+    <div id="pageTitleContainer"><b-icon icon="clipboard-data"></b-icon>&nbsp;&nbsp;&nbsp;&nbsp;자산 분석</div>
     <div id="analysisPageContentContainer">
       <div id="MoneyAnalysisContainer">
         <div id="MoneyAnalysisCon">
@@ -19,7 +19,12 @@
         <div class="chartCon">
           <div class="pageTitle">카테고리 별 소비 패턴</div>
           <div class="chartController">
-            <AnalysisCategoryChart :nowDate="nowMonth"/>
+            <div class="chartCategoryContainer">
+              <AnalysisCategoryChart :nowDate="nowMonth"/>
+            </div>
+            <div class="chartCategoryContainer">
+              <AnalysisPieChart :nowDate="nowMonth"/>
+            </div>
             <!-- <ExpendCategoryChart :nowDate="nowMonth"/> -->
           </div>
         </div>
@@ -32,6 +37,7 @@
 import MoneyAnalysis from './MoneyAnalysis/MoneyAnalysis.vue'
 import AnalysisLineChart from './ChartAnalysis/AnalysisLineChart.vue'
 import AnalysisCategoryChart from './ChartAnalysis/AnalysisCategoryChart.vue'
+import AnalysisPieChart from './ChartAnalysis/AnalysisPieChart.vue'
 import Common from '../../assets/common.js'
 var common = new Common;
 
@@ -40,7 +46,8 @@ export default {
     components: {
       MoneyAnalysis,
       AnalysisLineChart,
-      AnalysisCategoryChart
+      AnalysisCategoryChart,
+      AnalysisPieChart
     },
     data(){
       return{
@@ -61,5 +68,8 @@ export default {
 
   #analysisPage > #analysisPageContentContainer  > .ChartContainer { flex: 6.7 0 0; display: flex; flex-direction: column; justify-content: space-between; padding: 1em 2em 2em 0em; }
   #analysisPage > #analysisPageContentContainer  > .ChartContainer > .chartCon { flex: 0 0 48%; align-self: center; display: flex; flex-direction: column; width: 100%; background-color: white; box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%); border-radius: .25em; }
-  #analysisPage > #analysisPageContentContainer  > .ChartContainer > .chartCon .chartController { flex: 9 0 0; width: 100%; padding: 1em;  }
+  #analysisPage > #analysisPageContentContainer  > .ChartContainer > .chartCon .chartController { flex: 9 0 0; width: 100%; padding: 1em; }
+  #analysisPage > #analysisPageContentContainer  > .ChartContainer > .chartCon .chartController:nth-child(2) { display: flex; }
+  #analysisPage > #analysisPageContentContainer  > .ChartContainer > .chartCon .chartController:nth-child(2) .chartCategoryContainer { flex: 0 0 50%; height: 90%; }
+  
 </style>

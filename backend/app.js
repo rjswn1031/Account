@@ -4,30 +4,31 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-// ================ DB Connection ====================
-var mysql = require('mysql');
+// ================ MySQL DB Connection ====================
+// var mysql = require('mysql');
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  port: 3306,
-  user: 'admin',
-  password: 'admin',
-  database: 'account'
-})
+// var connection = mysql.createConnection({
+//   host: 'localhost',
+//   port: 3306,
+//   user: 'admin',
+//   password: 'admin',
+//   database: 'account'
+// })
 
-connection.connect(function(err) {
-  if(err) {
-    console.log('connection error');
-    console.log(err);
-    throw err;
-  }
-})
+// connection.connect(function(err) {
+//   if(err) {
+//     console.log('connection error');
+//     console.log(err);
+//     throw err;
+//   }
+// })
 
+// ================ ORACLE DB Connection ====================
 
 // ================ router ====================
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var memberRouter = require('./routes/member');
+// var memberRouter = require('./routes/member');
 
 var app = express();
 
@@ -43,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/member', memberRouter);
+// app.use('/api/member', memberRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
