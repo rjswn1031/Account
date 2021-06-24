@@ -149,7 +149,7 @@ export default {
 }
 </script>
 <style>
-  #infoSection { display: flex; flex-direction: column; flex-wrap: wrap; border-left: 1px solid #c7c7c7 !important; }
+  #infoSection { display: flex; flex-direction: column; flex-wrap: wrap; border-left: 1px solid #c7c7c7 !important; z-index: 51; }
   #infoSection > #infoSectionTitie { flex: 0 0 4.2em; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2em; color: #fff; background-color: #4fc08d; border-top: 1px solid #49a27a; text-align: center; width: 100%; }
 
   #infoSection > #displayContainer { flex: 0 0 4.2em; display: flex; flex-direction: row; align-items: center; width: 100%; color: #6C757D; background-color: #f5f5f5; font-weight: bold; font-size: 0.9em; }
