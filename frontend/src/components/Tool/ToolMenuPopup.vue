@@ -2,7 +2,7 @@
   <div id="ToolMenuPopup">
       <div class="ToolMenuPopupContainer">
         <span class="toolIcon" @click="openMemoPopup"><b-icon icon="journal-text"></b-icon></span>
-        <span class="toolIcon"><b-icon icon="calculator-fill"></b-icon></span>
+        <span class="toolIcon" @click="openCalculatorPopup"><b-icon icon="calculator-fill"></b-icon></span>
         <span class="toolIcon" @click="closeToolPopup"><b-icon icon="caret-down-fill"></b-icon></span>
         <!-- <span class="toolIcon"><b-icon icon="file-earmark-text-fill"></b-icon></span> -->
         <!-- <span class="popupCloseIcon"><b-icon icon="arrow-left" @click="closeMemoPopup"></b-icon></span> -->
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  props: ['closeToolPopup','openMemoPopup'],
+  props: ['closeToolPopup','openMemoPopup','openCalculatorPopup'],
   methods: {
     
   }

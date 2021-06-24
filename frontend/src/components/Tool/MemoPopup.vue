@@ -53,5 +53,5 @@ export default {
     #MemoPopup > .memoFooter { flex: 0 0 2.8em; display: flex; justify-content: start; align-items: center; }
     #MemoPopup > .memoFooter > .memoInsertBtn { font-size: 0.9em; font-weight: 500; color: white; background-color: #33475b; width: 4em; height: 2em; border-radius: .4em; }
 
-    #MemoPopup .closePopup { position: absolute; right: .7em; top: .5em; font-size: 1.3em; }
+    #MemoPopup .closePopup { position: absolute; right: .7em; top: .5em; font-size: 1.3em; cursor: pointer; }
 </style>

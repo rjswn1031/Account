@@ -12,12 +12,13 @@
       </transition>
     </div>
     <transition name="slide-fade">
-     <ToolMenuPopup v-if="!isToolBtnOn" :closeToolPopup="closeToolPopup" :openMemoPopup="openMemoPopup" />
+     <ToolMenuPopup v-if="!isToolBtnOn" :closeToolPopup="closeToolPopup" :openMemoPopup="openMemoPopup" :openCalculatorPopup="openCalculatorPopup" />
     </transition>
     <!-- ToolMenuSection -->
 
     <!-- popupSection -->
     <MemoPopup v-if="isMemoPopupOn" :closePopup="closeMemoPopup"/>
+    <CalculatorPopup v-if="isCalculatorPopupOn" :closePopup="closeCalculatorPopup"/>
     <!-- popupSection -->
   </div>
 </template>
@@ -26,18 +27,21 @@
 import MenuBar from './MenuBar/MenuBar.vue'
 import ToolMenuPopup from './Tool/ToolMenuPopup.vue'
 import MemoPopup from './Tool/MemoPopup.vue'
+import CalculatorPopup from './Tool/CalculatorPopup.vue'
 
 export default {
   name: 'App',
   components: {
     MenuBar,
     ToolMenuPopup,
-    MemoPopup
+    MemoPopup,
+    CalculatorPopup
   },
   data() {
     return {
       isToolBtnOn: true,
       isMemoPopupOn: false,
+      isCalculatorPopupOn: false
     }
   },
   methods: {
@@ -52,6 +56,12 @@ export default {
     },
     closeMemoPopup(){
       this.isMemoPopupOn = false;
+    },
+    openCalculatorPopup(){
+      this.isCalculatorPopupOn = true;
+    },
+    closeCalculatorPopup(){
+      this.isCalculatorPopupOn = false;
     }
   }
 }
