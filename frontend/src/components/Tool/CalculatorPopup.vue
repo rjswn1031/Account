@@ -24,7 +24,7 @@ export default {
     data() {
       return {
         // calBtnArray: {'1':'num','2':'num','3':'num','+':'plus','4':'num','5':'num','6':'num','-':'minus','7':'num','8':'num','9':'num','×':'multiply','0':'num','c':'reset','=':'result','÷':'devide'},
-        calBtnArray: ['1','2','3','<','x²','4','5','6','+','-','7','8','9','×','÷','+/-','0','.','=','c'],
+        calBtnArray: ['1','2','3','<','his','4','5','6','+','-','7','8','9','×','÷','+/-','0','.','=','c'],
         equation: '',
         nowNum: '',
         preNum: 0,
@@ -32,7 +32,9 @@ export default {
         calResult: 0,
         selectNum: 0,
         calMode: '',
-        isSign: false
+        isSign: false,
+        isReset: true,
+        isTotal: false
       }
     },
     watch: {
@@ -44,25 +46,57 @@ export default {
     },
     methods: {
       calNum(val){
-        if(val == '+') {
-          if(this.isSign) return;
-          this.equation += this.postNum.toLocaleString() + '+';
+        if(val == '+' || val =='-' || val == '×' || val == '÷') {
+          if(this.isSign) return; //연속 기호 방지
+          if(this.isReset) return;
+          if(this.calMode == '') this.calMode = val; //최초 기호 오류 방지
+          if(this.postNum == '') this.postNum = 0;
+          if(this.isReset) 
+          { 
+            this.equation = this.postNum.toLocaleString(); 
+          } //postNum 초기화
+          else 
+          { 
+            if(this.isTotal) { this.equation += ' ' + val + ' '; this.isTotal = false; }
+            else { this.equation += this.postNum.toLocaleString() + ' ' + val + ' '; }
+          }
+
           this.calResult = this.calculateByMode(parseInt(this.preNum), parseInt(this.postNum));
           this.preNum = parseInt(this.calResult);
           this.nowNum = '';
-          this.calMode = '+';
+          this.calMode = val;
           this.isSign = true;
-        } else if(val == '-'){
-          if(this.isSign) return;
-          this.equation += this.postNum.toLocaleString() + '-';
-          this.calResult = parseInt(this.preNum) - parseInt(this.postNum);
-          this.preNum = parseInt(this.calResult);
-          console.log(this.preNum)
+          this.isReset = false;
+
+        } else if(val == '=') {
+          this.calResult = this.calculateByMode(parseInt(this.preNum), parseInt(this.postNum));
+          this.equation = this.calResult;
           this.nowNum = '';
-          this.isSign = true;
+          this.calMode = '';
+          this.preNum = parseInt(this.calResult);
+          this.postNum = 0;
+          this.isSign = false;
+          this.isReset = false;
+          this.isTotal = true;
+
+        } else if(val == 'c') {
+          this.equation = '';
+          this.nowNum = '';
+          this.preNum = 0;
+          this.postNum = 0;
+          this.calResult = 0;
+          this.selectNum = 0;
+          this.calMode = '';
+          this.isSign = false;
+          this.isReset = true;
+          this.isTotal = false
+
+        } else if(val == '.') {
+          this.nowNum += val + '0';
         } else {
           this.nowNum += val;
           this.isSign = false;
+          this.isReset = false;
         }
       },
       calculateByMode(a, b){
@@ -72,7 +106,6 @@ export default {
           case '-': result = a - b; break;
           case '×': result = a * b; break;
           case '÷': result = a / b; break;
-          case 'x²': result = a * a; break;
         }
         return result;
       }
